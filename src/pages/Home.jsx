@@ -43,12 +43,11 @@ const Home = () => {
 
                             <motion.h1 variants={fadeUp} className="hero-title">
                                 Hi, I'm Swarnesh. <br />
-                                <span className="text-gradient">Where business thinking meets technical execution.</span>
+                                <span className="text-gradient">MBA Candidate at UNC Kenan-Flagler Business School</span>
                             </motion.h1>
 
                             <motion.p variants={fadeUp} className="hero-subtitle">
-                                UNC Kenan-Flagler MBA ’27 | AI & Product Strategy <br />
-                                Previously scaling global payment platforms at J.P. Morgan Processing $1T+ Annually.
+                                Product Management | AI Strategy | Cloud Technology | FinTech Payments | JPMorganChase
                             </motion.p>
 
                             <motion.div variants={fadeUp} className="hero-cta">
@@ -70,9 +69,7 @@ const Home = () => {
                             initial="hidden"
                             animate="show"
                         >
-                            <div className="hero-image-container glass-card">
-                                <img src="/assets/profile.jpg" alt="Swarnesh Jha" className="hero-image" />
-                            </div>
+                            <img src="/assets/profile.png" alt="Swarnesh Jha" className="hero-image-full" />
                         </motion.div>
                     </div>
                 </div>

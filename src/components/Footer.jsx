@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-brand">
                         <h3>Swarnesh Jha</h3>
-                        <p>Where business thinking meets technical execution. Innovating at the intersection of AI, Product Management, and Cloud Architecture.</p>
+                        <p>MBA Candidate at UNC Kenan-Flagler Business School. Innovating at the intersection of AI, Product Management, and Cloud Architecture.</p>
                     </div>
 
                     <div className="footer-social">
