@@ -46,9 +46,11 @@ const Home = () => {
                                 <span className="text-gradient">MBA Candidate at UNC Kenan-Flagler Business School</span>
                             </motion.h1>
 
-                            <motion.p variants={fadeUp} className="hero-subtitle">
-                                Product Management | AI Strategy | Cloud Technology | FinTech Payments | JPMorganChase
-                            </motion.p>
+                            <motion.div variants={fadeUp} className="hero-skills">
+                                {['Product Management', 'AI Strategy', 'Cloud Technology', 'FinTech Payments', 'JPMorganChase'].map((skill) => (
+                                    <span key={skill} className="skill-tag">{skill}</span>
+                                ))}
+                            </motion.div>
 
                             <motion.div variants={fadeUp} className="hero-cta">
                                 <Link to="/projects" className="btn btn-primary">

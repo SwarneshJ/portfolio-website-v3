@@ -39,8 +39,35 @@
     color: var(--text-muted);
     font-weight: 300;
     max-width: 600px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
+}
+
+.hero-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    max-width: 650px;
+}
+
+.skill-tag {
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: rgba(62, 139, 255, 0.1);
+    border-color: rgba(62, 139, 255, 0.4);
+    color: var(--accent-cyan);
+    transform: translateY(-2px);
 }
 
 .hero-cta {
@@ -186,7 +213,9 @@
     .hero-cta {
         justify-content: center;
     }
-}.resume-container {
+}
+
+.resume-container {
     max-width: 900px;
     margin: 0 auto;
 }
