@@ -220,10 +220,23 @@ const Home = () => {
                             >
                                 <div className="edu-header">
                                     {edu.logo && <img src={edu.logo} alt={edu.school} className="edu-logo" />}
-                                    <div>
+                                    <div style={{ flex: 1 }}>
                                         <h3 className="edu-school">{edu.school}</h3>
                                         <p className="edu-degree">{edu.degree}</p>
                                         <p className="edu-year">{edu.year}</p>
+
+                                        {(edu.title || edu.bullets) && (
+                                            <div className="edu-details">
+                                                {edu.title && <p className="edu-title">{edu.title}</p>}
+                                                {edu.bullets && (
+                                                    <ul className="edu-bullets">
+                                                        {edu.bullets.map((bullet, bIdx) => (
+                                                            <li key={bIdx}>{bullet}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>
@@ -300,18 +313,21 @@ const educationData = [
         school: 'UNC Kenan-Flagler Business School',
         logo: '/assets/unc.jpeg',
         degree: 'Master of Business Administration (MBA)',
-        year: 'Expected Aug 2025'
+        year: 'Aug 2025 - May 2027',
+        title: 'Concentrations:',
+        bullets: [
+            'Technology Innovation & Product Management',
+            'AI & Business Analytics'
+        ]
     },
     {
         school: 'BITS Pilani',
         logo: '/assets/bits.png',
-        degree: 'Master of Science (M.S.) in Mathematics',
-        year: '2015 - 2020'
-    },
-    {
-        school: 'BITS Pilani',
-        logo: '/assets/bits.png',
-        degree: 'Bachelor of Engineering (B.E.)',
-        year: '2015 - 2020'
+        degree: 'Dual Degree:',
+        year: 'Aug 2015 - May 2020',
+        bullets: [
+            'Master of Science (M.Sc.) in Mathematics',
+            'Bachelor of Engineering (B.E.)'
+        ]
     }
 ];

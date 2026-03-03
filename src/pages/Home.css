@@ -400,6 +400,42 @@
     color: var(--text-muted);
     font-size: 0.9rem;
     font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.edu-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.edu-title {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.edu-bullets {
+    list-style: none;
+    padding-left: 0;
+}
+
+.edu-bullets li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.edu-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-weight: bold;
 }
 
 .pb-0 {
