@@ -22,7 +22,7 @@ const projectsData = [
         tags: ['AI/NLP', 'GenAI', 'RoBERTa', 'Python'],
         summary: 'An end-to-end sentiment and taxonomy classification pipeline utilizing GenAI for labeling and RoBERTa for cost-effective inference.',
         metrics: ['88% F1-Score', '10x Cost Reduction vs GPT-4'],
-        links: { github: '#', live: '#' },
+        links: { github: 'https://github.com/SwarneshJ/AI-Customer-Review-Classification', live: null },
         hasMemo: true,
         memoSlides: Array.from({ length: 14 }, (_, i) => `/assets/memo/Slide${i + 1}.jpeg`)
     },
@@ -33,7 +33,7 @@ const projectsData = [
         tags: ['React', 'Next.js', 'PostgreSQL', 'AI Agent'],
         summary: 'A real-time analytics engine with ML forecasting to identify global tech talent pools, scrape live job boards, and benchmark competitor compensation.',
         metrics: ['Real-time Streaming', 'RAG Integration'],
-        links: { github: '#', live: '#' }
+        links: { github: 'https://github.com/SwarneshJ/ai-talent-intelligence-dashboard', live: 'https://ai-talent-intelligence-dashboard.vercel.app/' }
     },
     {
         id: 'jpmc-routing',
@@ -51,7 +51,7 @@ const projectsData = [
         tags: ['RAG', 'LangChain', 'OpenAI'],
         summary: 'A conversational AI interface built to help North Carolina residents quickly find vehicle registration wait times and obscure policy requirements.',
         metrics: ['Reduced Bounce Rate 40%'],
-        links: { github: '#', live: '#' }
+        links: { github: 'https://github.com/SwarneshJ/myAI3', live: 'https://my-ai-3-pearl-alpha.vercel.app/' }
     }
 ];
 
@@ -145,12 +145,16 @@ const Projects = () => {
                                             <Presentation size={18} /> Executive Memo
                                         </button>
                                     )}
-                                    <a href={project.links.live} className="btn-icon" aria-label="View Live">
-                                        <ExternalLink size={18} /> View App
-                                    </a>
-                                    <a href={project.links.github} className="btn-icon" aria-label="GitHub">
-                                        <Github size={18} /> Code
-                                    </a>
+                                    {project.links.live && (
+                                        <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-icon" aria-label="View Live">
+                                            <ExternalLink size={18} /> View App
+                                        </a>
+                                    )}
+                                    {project.links.github && (
+                                        <a href={project.links.github} target="_blank" rel="noreferrer" className="btn-icon" aria-label="GitHub">
+                                            <Github size={18} /> Code
+                                        </a>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}

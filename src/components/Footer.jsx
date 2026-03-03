@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-brand">
                         <h3>Swarnesh Jha</h3>
-                        <p>MBA Candidate at UNC Kenan-Flagler Business School. Innovating at the intersection of AI, Product Management, and Cloud Architecture.</p>
+                        <p>MBA Candidate at UNC Kenan-Flagler Business School.</p>
                     </div>
 
                     <div className="footer-social">
@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Swarnesh Jha. Crafted with analytical rigor.</p>
+                    <p>&copy; 2026 Swarnesh Jha. Crafted with Google Antigravity</p>
                 </div>
             </div>
         </footer>
