@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Download, Terminal, Brain, Cloud, Briefcase, GraduationCap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Download, Terminal, Brain, Cloud, Briefcase, GraduationCap, ExternalLink, Github, Presentation, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import './Projects.css';
 import './Home.css';
 
 // Animation Variants
@@ -17,7 +19,39 @@ const fadeUp = {
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
+const modalVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: 'easeOut' } },
+    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2, ease: 'easeIn' } }
+};
+
 const Home = () => {
+    const [selectedMemo, setSelectedMemo] = useState(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const openMemo = (project) => {
+        setSelectedMemo(project);
+        setCurrentSlide(0);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMemo = () => {
+        setSelectedMemo(null);
+        document.body.style.overflow = 'auto';
+    };
+
+    const nextSlide = () => {
+        if (selectedMemo) {
+            setCurrentSlide((prev) => (prev === selectedMemo.memoSlides.length - 1 ? 0 : prev + 1));
+        }
+    };
+
+    const prevSlide = () => {
+        if (selectedMemo) {
+            setCurrentSlide((prev) => (prev === 0 ? selectedMemo.memoSlides.length - 1 : prev - 1));
+        }
+    };
+
     return (
         <motion.div
             className="page-container"
@@ -130,25 +164,97 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3. Featured Projects Teaser */}
+            {/* 3. Projects Showcase */}
             <section className="section-padding bg-alternate">
                 <div className="container">
                     <div className="flex-between">
                         <div>
-                            <h2 className="section-title">Case Studies</h2>
+                            <h2 className="section-title">Projects</h2>
                             <p className="section-sub">A glimpse into what I've built.</p>
                         </div>
                         <Link to="/projects" className="btn btn-secondary hide-mobile">All Projects</Link>
                     </div>
 
-                    <div className="feature-project glass-card mt-4">
-                        <div className="project-meta">
-                            <span className="pill">Flagship</span>
-                            <span className="pill outline">AI/ML</span>
+                    <div className="projects-grid mt-4">
+                        {homeProjectsData.map((project, index) => (
+                            <motion.div
+                                key={project.id}
+                                className={`project-card glass-card ${project.flagship ? 'flagship-card' : ''}`}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '-50px' }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+                                {project.flagship && <div className="flagship-badge">Flagship Case Study</div>}
+
+                                <div className="project-tags">
+                                    {project.tags.map(tag => (
+                                        <span key={tag} className="pill outline text-xs">{tag}</span>
+                                    ))}
+                                </div>
+
+                                <h3>{project.title}</h3>
+                                <p>{project.summary}</p>
+
+                                <div className="project-metrics">
+                                    {project.metrics.map(metric => (
+                                        <div key={metric} className="metric-item">
+                                            <ArrowRight size={14} className="metric-icon" /> {metric}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="project-actions" style={{ flexWrap: 'wrap' }}>
+                                    {project.hasMemo && (
+                                        <button
+                                            className="btn-icon"
+                                            style={{ background: 'var(--accent-blue)', color: 'white', order: -1 }}
+                                            onClick={() => openMemo(project)}
+                                        >
+                                            <Presentation size={18} /> Executive Memo
+                                        </button>
+                                    )}
+                                    {project.links.live && (
+                                        <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-icon" aria-label="View Live">
+                                            <ExternalLink size={18} /> View App
+                                        </a>
+                                    )}
+                                    {project.links.github && (
+                                        <a href={project.links.github} target="_blank" rel="noreferrer" className="btn-icon" aria-label="GitHub">
+                                            <Github size={18} /> Code
+                                        </a>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. Mental Models & Frameworks */}
+            <section className="section-padding">
+                <div className="container">
+                    <div className="flex-between align-center mb-4">
+                        <div>
+                            <h2 className="section-title">Frameworks</h2>
+                            <p className="section-sub mb-0" style={{ marginBottom: 0 }}>Mental models scaling ambiguity to actionable clarity.</p>
                         </div>
-                        <h3>Business-Grade Review Classifier</h3>
-                        <p>Engineered an end-to-end sentiment and taxonomy classification pipeline utilizing GenAI for labeling and RoBERTa for cost-effective inference. Delivered actionable customer insights to guide engineering prioritization.</p>
-                        <Link to="/projects" className="read-more">Read Full Case Study &rarr;</Link>
+                        <Link to="/frameworks" className="btn btn-secondary hide-mobile">All Frameworks</Link>
+                    </div>
+
+                    <div className="services-grid mt-4">
+                        <motion.div className="glass-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                            <h3>Minto Pyramid Principle</h3>
+                            <p>Top-down structured thinking ensuring executive communications are direct, logical, and instantly actionable. Crucial for steering high-level strategic alignment.</p>
+                        </motion.div>
+                        <motion.div className="glass-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                            <h3>RICE Scoring Model</h3>
+                            <p>Data-driven prioritization balancing Reach, Impact, Confidence, and Effort. Instrumental in maximizing engineering ROI when defining agile product roadmaps.</p>
+                        </motion.div>
+                        <motion.div className="glass-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+                            <h3>Jobs-to-be-Done (JTBD)</h3>
+                            <p>Focusing entirely on the underlying motive rather than demographic features to uncover the true 'why' behind product adoption and drive actual innovation.</p>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -245,6 +351,66 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Executive Memo Modal */}
+            <AnimatePresence>
+                {selectedMemo && (
+                    <motion.div
+                        className="modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={closeMemo}
+                    >
+                        <motion.div
+                            className="modal-content"
+                            variants={modalVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
+                        >
+                            <div className="modal-header">
+                                <h3>{selectedMemo.title} - Executive Memo</h3>
+                                <button className="close-btn" onClick={closeMemo}>
+                                    <X size={24} />
+                                </button>
+                            </div>
+
+                            <div className="modal-body">
+                                <button className="modal-nav-btn prev" onClick={prevSlide}>
+                                    <ChevronLeft size={24} />
+                                </button>
+
+                                <img
+                                    src={selectedMemo.memoSlides[currentSlide]}
+                                    alt={`Slide ${currentSlide + 1}`}
+                                    className="slide-image"
+                                    onError={(e) => {
+                                        // Fallback if user hasn't uploaded images yet
+                                        e.target.onerror = null;
+                                        e.target.src = `https://placehold.co/1000x562/1a1a1a/3e8bff?text=Placeholder+Slide+${currentSlide + 1}%0A(Export+PPTX+as+Images+and+place+in+src/assets/memo/)`;
+                                    }}
+                                />
+
+                                <button className="modal-nav-btn next" onClick={nextSlide}>
+                                    <ChevronRight size={24} />
+                                </button>
+                            </div>
+
+                            <div className="modal-footer">
+                                {selectedMemo.memoSlides.map((_, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`slide-dot ${idx === currentSlide ? 'active' : ''}`}
+                                        onClick={() => setCurrentSlide(idx)}
+                                    />
+                                ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
         </motion.div>
     );
 };
@@ -329,5 +495,29 @@ const educationData = [
             'Master of Science (M.Sc.) in Mathematics',
             'Bachelor of Engineering (B.E.)'
         ]
+    }
+];
+
+const homeProjectsData = [
+    {
+        id: 'review-classifier',
+        flagship: true,
+        title: 'Business-Grade Review Classifier',
+        tags: ['AI/NLP', 'GenAI', 'RoBERTa', 'Python'],
+        summary: 'An end-to-end sentiment and taxonomy classification pipeline utilizing GenAI for labeling and RoBERTa for cost-effective inference.',
+        metrics: ['88% F1-Score', '10x Cost Reduction vs GPT-4'],
+        links: { github: 'https://github.com/SwarneshJ/AI-Customer-Review-Classification', live: null },
+        hasMemo: true,
+        memoSlides: Array.from({ length: 14 }, (_, i) => `/assets/memo/Slide${i + 1}.jpeg`)
+    },
+    {
+        id: 'talent-dashboard',
+        flagship: false,
+        title: 'AI Talent Intelligence Dashboard',
+        tags: ['React', 'Next.js', 'PostgreSQL', 'AI Agent'],
+        summary: 'A real-time analytics engine with ML forecasting to identify global tech talent pools, scrape live job boards, and benchmark competitor compensation.',
+        metrics: ['Real-time Streaming', 'RAG Integration'],
+        links: { github: 'https://github.com/SwarneshJ/ai-talent-intelligence-dashboard', live: 'https://ai-talent-intelligence-dashboard.vercel.app/' },
+        hasMemo: false
     }
 ];
