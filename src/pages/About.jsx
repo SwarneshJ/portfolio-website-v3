@@ -66,8 +66,6 @@ const About = () => {
                             <p>
                                 Now an MBA Candidate, I am undergoing a deliberate evolution from a technical builder to a strategic product leader. I bring a unique blend of <strong>quant rigor</strong>—grounded in my Mathematics background—and <strong>customer-centricity</strong>. Whether I'm evaluating AI model performance via F1 metrics or interviewing users, my methodology remains the same: ground decisions in data, but deliver for the human on the other side of the screen.
                             </p>
-
-                            <Link to="/experience" className="btn btn-primary mt-4">View Professional Timeline <Network size={18} /></Link>
                         </motion.div>
                     </div>
                 </div>

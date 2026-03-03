@@ -11,7 +11,6 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Coursework from './pages/Coursework';
 import Frameworks from './pages/Frameworks';
-import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/coursework" element={<Coursework />} />
             <Route path="/frameworks" element={<Frameworks />} />
-            <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
