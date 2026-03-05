@@ -187,43 +187,51 @@ const Home = () => {
                             >
                                 {project.flagship && <div className="flagship-badge">Flagship Case Study</div>}
 
-                                <div className="project-tags">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="pill outline text-xs">{tag}</span>
-                                    ))}
-                                </div>
+                                <div className="project-content-wrapper">
+                                    <div className="project-image-container">
+                                        <img src={project.image} alt={project.title} className="project-image" />
+                                    </div>
 
-                                <h3>{project.title}</h3>
-                                <p>{project.summary}</p>
-
-                                <div className="project-metrics">
-                                    {project.metrics.map(metric => (
-                                        <div key={metric} className="metric-item">
-                                            <ArrowRight size={14} className="metric-icon" /> {metric}
+                                    <div className="project-details">
+                                        <div className="project-tags">
+                                            {project.tags.map(tag => (
+                                                <span key={tag} className="pill outline text-xs">{tag}</span>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
 
-                                <div className="project-actions" style={{ flexWrap: 'wrap' }}>
-                                    {project.hasMemo && (
-                                        <button
-                                            className="btn-icon"
-                                            style={{ background: 'var(--accent-blue)', color: 'white', order: -1 }}
-                                            onClick={() => openMemo(project)}
-                                        >
-                                            <Presentation size={18} /> Executive Memo
-                                        </button>
-                                    )}
-                                    {project.links.live && (
-                                        <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-icon" aria-label="View Live">
-                                            <ExternalLink size={18} /> View App
-                                        </a>
-                                    )}
-                                    {project.links.github && (
-                                        <a href={project.links.github} target="_blank" rel="noreferrer" className="btn-icon" aria-label="GitHub">
-                                            <Github size={18} /> Code
-                                        </a>
-                                    )}
+                                        <h3>{project.title}</h3>
+                                        <p>{project.summary}</p>
+
+                                        <div className="project-metrics">
+                                            {project.metrics.map(metric => (
+                                                <div key={metric} className="metric-item">
+                                                    <ArrowRight size={14} className="metric-icon" /> {metric}
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div className="project-actions" style={{ flexWrap: 'wrap' }}>
+                                            {project.hasMemo && (
+                                                <button
+                                                    className="btn-icon"
+                                                    style={{ background: 'var(--accent-blue)', color: 'white', order: -1 }}
+                                                    onClick={() => openMemo(project)}
+                                                >
+                                                    <Presentation size={18} /> Executive Memo
+                                                </button>
+                                            )}
+                                            {project.links.live && (
+                                                <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-icon" aria-label="View Live">
+                                                    <ExternalLink size={18} /> View App
+                                                </a>
+                                            )}
+                                            {project.links.github && (
+                                                <a href={project.links.github} target="_blank" rel="noreferrer" className="btn-icon" aria-label="GitHub">
+                                                    <Github size={18} /> Code
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -526,6 +534,7 @@ const homeProjectsData = [
         metrics: ['88% F1-Score', '10x Cost Reduction vs GPT-4'],
         links: { github: 'https://github.com/SwarneshJ/AI-Customer-Review-Classification', live: null },
         hasMemo: true,
+        image: '/assets/memo/Slide1.jpeg',
         memoSlides: Array.from({ length: 14 }, (_, i) => `/assets/memo/Slide${i + 1}.jpeg`)
     },
     {
@@ -536,6 +545,7 @@ const homeProjectsData = [
         summary: 'A real-time analytics engine with ML forecasting to identify global tech talent pools, scrape live job boards, and benchmark competitor compensation.',
         metrics: ['Real-time Streaming', 'RAG Integration'],
         links: { github: 'https://github.com/SwarneshJ/ai-talent-intelligence-dashboard', live: 'https://ai-talent-intelligence-dashboard.vercel.app/' },
-        hasMemo: false
+        hasMemo: false,
+        image: '/assets/talent-dashboard.png'
     }
 ];
