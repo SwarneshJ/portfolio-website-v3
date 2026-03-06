@@ -20,7 +20,7 @@ const projectsData = [
         flagship: true,
         title: 'Business-Grade Review Classifier',
         tags: ['AI/NLP', 'GenAI', 'RoBERTa', 'Python'],
-        summary: 'An end-to-end sentiment and taxonomy classification pipeline utilizing GenAI for labeling and RoBERTa for cost-effective inference.',
+        summary: 'Curated a dataset of 1-star GrubHub reviews by benchmarking 6 GenAI models against human labelers. Selected the highest-alpha LLM to auto-label 15,000 reviews, which were used to fine-tune a RoBERTa model for highly-scalable customer insight extraction.',
         metrics: ['88% F1-Score', '10x Cost Reduction vs GPT-4'],
         links: { github: 'https://github.com/SwarneshJ/AI-Customer-Review-Classification', live: null },
         hasMemo: true,
