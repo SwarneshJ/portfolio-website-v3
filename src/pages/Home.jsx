@@ -82,7 +82,13 @@ const Home = () => {
 
                             <motion.div variants={fadeUp} className="hero-skills">
                                 {['Product Management', 'AI Strategy', 'Cloud Technology', 'FinTech Payments', 'JPMorganChase'].map((skill) => (
-                                    <span key={skill} className="skill-tag">{skill}</span>
+                                    skill === 'FinTech Payments' ? (
+                                        <Link to="/payments" key={skill} className="skill-tag" style={{ cursor: 'pointer', textDecoration: 'none', background: 'rgba(62, 139, 255, 0.15)', borderColor: 'rgba(62, 139, 255, 0.4)' }}>
+                                            {skill} &nearr;
+                                        </Link>
+                                    ) : (
+                                        <span key={skill} className="skill-tag">{skill}</span>
+                                    )
                                 ))}
                             </motion.div>
 

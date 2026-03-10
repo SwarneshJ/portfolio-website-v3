@@ -12,6 +12,7 @@ import Projects from './pages/Projects';
 import Coursework from './pages/Coursework';
 import Frameworks from './pages/Frameworks';
 import Contact from './pages/Contact';
+import Payments from './pages/Payments';
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
             <Route path="/coursework" element={<Coursework />} />
             <Route path="/frameworks" element={<Frameworks />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/payments" element={<Payments />} />
           </Routes>
         </AnimatePresence>
       </main>
