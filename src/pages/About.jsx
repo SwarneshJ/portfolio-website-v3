@@ -56,15 +56,19 @@ const About = () => {
                                 My journey started in software engineering, focusing on the intricate mechanics of building digital products. Over the years, I realized that writing code is only a fraction of the equation. True product impact happens at the intersection of technology, business strategy, and human behavior.
                             </p>
                             <p>
-                                Before business school, I spent over 3 years scaling platforms at J.P. Morgan and other organizations. I architected cloud-native AWS systems processing billions of annual transactions and deployed machine learning frameworks that meaningfully optimized global payment routes. This period ingrained in me a deep appreciation for scale, resilience, and operational excellence.
+                                Before business school, I spent 5 years scaling platforms—3 at J.P. Morgan and 2 at Q3 Technologies. I architected cloud-native AWS systems processing billions of annual transactions and deployed machine learning frameworks that meaningfully optimized global payment routes. This period ingrained in me a deep appreciation for scale, resilience, and operational excellence.
                             </p>
 
                             <div className="highlight-quote">
-                                "At UNC Kenan-Flagler, I am deepening the strategy, analytics, and leadership skills that shape product leaders capable of connecting market insight with technical feasibility."
+                                "Along the way, I realized the problems I loved most weren't how do we build this but what should we build, and why?"
                             </div>
 
                             <p>
-                                Now an MBA Candidate, I am undergoing a deliberate evolution from a technical builder to a strategic product leader. I bring a unique blend of <strong>quant rigor</strong>—grounded in my Mathematics background—and <strong>customer-centricity</strong>. Whether I'm evaluating AI model performance via F1 metrics or interviewing users, my methodology remains the same: ground decisions in data, but deliver for the human on the other side of the screen.
+                                That's what brought me to UNC Kenan-Flagler (MBA '27), where I'm concentrating in Technology Innovation & Product Management and AI & Business Analytics. I'm currently seeking a Summer 2026 PM or Technical PM internship where I can apply deep technical fluency to product strategy, user problems, and go-to-market decisions.
+                            </p>
+
+                            <p>
+                                I bring a unique blend of <strong>quant rigor</strong>—grounded in my Mathematics background—and <strong>customer-centricity</strong>. Whether I'm evaluating AI model performance via F1 metrics or interviewing users, my methodology remains the same: ground decisions in data, but deliver for the human on the other side of the screen.
                             </p>
                         </motion.div>
                     </div>
